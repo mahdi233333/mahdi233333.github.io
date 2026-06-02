@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  background: linear-gradient(145deg, #ffb6c1 0%, #ff69b4 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
+  transition: background 0.3s;
+}
+body.night-mode { background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%); }
+
+.hidden { display: none !important; }
+
+.main-menu {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.menu-box {
+  background: #2c1a0e;
+  border-radius: 40px;
+  padding: 30px;
+  text-align: center;
+  border: 2px solid #ffb347;
+  min-width: 320px;
+}
+.menu-box h1 { color: #ffd966; margin-bottom: 20px; }
+.menu-box button, .mode-btn, .diff-btn, .char-btn {
+  background: #ffb347;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 8px 15px;
+  margin: 5px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.mode-btn.active, .diff-btn.active, .char-btn.active { background: #ffd966; box-shadow: 0 0 10px gold; }
+.stats-record { display: flex; justify-content: space-between; margin: 15px 0; color: #ffcd94; }
+.menu-footer { margin-top: 15px; color: #ffcd94; font-size: 0.8rem; }
+
+.game-container { position: relative; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+#game {
+  width: 800px;
+  height: 500px;
+  border: 4px solid #ffb347;
+  border-radius: 20px;
+  background-color: #2b4f2b;
+  background-image: url('./img/bg1.jpg');
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  cursor: none;
+}
+.stats-panel {
+  display: flex;
+  gap: 15px;
+  background: #2c1a0ecc;
+  backdrop-filter: blur(5px);
+  padding: 6px 15px;
+  border-radius: 60px;
+  color: #f9e7b3;
+  font-size: 0.8rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.stats-panel div { background: #000000aa; padding: 4px 10px; border-radius: 40px; }
+.shop-icon {
+  background: #ffb347;
+  border: none;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#player {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+  background-position: center;
+  z-index: 10;
+  filter: drop-shadow(2px 2px 4px black);
+  transition: left 0.05s linear, top 0.05s linear;
+  pointer-events: none;
+}
+.character-amir { background-image: url('./img/salam.jpg'); }
+.character-koshte { background-image: url('./img/koshte.jpg'); }
+.character-sarbaz { background-image: url('./img/sarbaz.jpg'); }
+
+.enemy {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  cursor: pointer;
+  z-index: 5;
+  transition: left 0.05s linear, top 0.05s linear;
+}
+.enemy-normal { background-image: url('./img/amin.jpg'); }
+.enemy-fast { background-image: url('./img/enemy_fast.jpg'); width: 35px; height: 35px; }
+.enemy-big { background-image: url('./img/enemy_big.jpg'); width: 80px; height: 80px; }
+.enemy-boss { background-image: url('./img/boss.jpg'); width: 120px; height: 120px; }
+
+.warning-marker {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-image: url('./img/snake.jpg'); /* علامت مار */
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 5px red);
+  z-index: 40;
+  pointer-events: none;
+  animation: warningPulse 0.5s infinite alternate;
+}
+@keyframes warningPulse {
+  from { transform: scale(1); opacity: 0.7; }
+  to { transform: scale(1.3); opacity: 1; }
+}
+
+.item {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  cursor: pointer;
+  z-index: 8;
+}
+.item-heart { background-image: url('./img/heart.png'); }
+.item-lightning { background-image: url('./img/lightning.jpg'); }
+.item-shield { background-image: url('./img/shield.jpg'); }
+.item-slow { background-image: url('./img/slow.png'); }
+.item-multishot { background-image: url('./img/multishot.jpg'); }
+
+.attack-effect {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, red, orange);
+  border-radius: 50%;
+  filter: blur(6px);
+  pointer-events: none;
+  animation: attackFlash 0.2s ease-out;
+}
+@keyframes attackFlash {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+.white-flash {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 30;
+  animation: whiteFlashAnim 0.15s ease-out;
+}
+@keyframes whiteFlashAnim {
+  0% { opacity: 0.6; }
+  100% { opacity: 0; }
+}
+.boss-health {
+  position: absolute;
+  top: 10px;
+  left: 10%;
+  width: 80%;
+  height: 20px;
+  background: gray;
+  border-radius: 10px;
+  z-index: 25;
+}
+.boss-health-fill {
+  width: 100%;
+  height: 100%;
+  background: red;
+  border-radius: 10px;
+  transition: width 0.2s;
+}
+.shake { animation: shakeAnim 0.3s ease-in-out; }
+@keyframes shakeAnim {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+.gameover-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #000000bb;
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 200;
+  color: gold;
+}
+.restart-btn { background: #ffb347; padding: 8px 20px; margin: 5px; border-radius: 30px; cursor: pointer; }
+.shop-panel, .achievements-panel {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #2c1a0e;
+  border: 2px solid gold;
+  border-radius: 30px;
+  padding: 20px;
+  z-index: 300;
+  width: 300px;
+  text-align: center;
+  color: white;
+}
+.shop-item { margin: 15px 0; display: flex; justify-content: space-between; align-items: center; }
+.close-btn { background: #ffb347; padding: 5px 15px; border-radius: 20px; margin-top: 15px; cursor: pointer; }
+.congrats-message {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: gold;
+  color: darkred;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 50px;
+  white-space: nowrap;
+  z-index: 150;
+  animation: fadeOutUp 2s forwards;
+  pointer-events: none;
+  text-align: center;
+}
+@keyframes fadeOutUp {
+  0% { opacity: 1; transform: translate(-50%, -50%); }
+  80% { opacity: 1; transform: translate(-50%, -70%); }
+  100% { opacity: 0; transform: translate(-50%, -100%); display: none; }
+}
+@media (max-width: 850px) { #game { width: 95vw; height: 60vw; } }

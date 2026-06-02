@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Amir Fighter | فروشگاه در بازی + پیام تشویقی</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="main-menu" id="mainMenu">
+  <div class="menu-box">
+    <h1>⚔️ AMIR FIGHTER ⚔️</h1>
+    <div class="mode-select">
+      <span>حالت بازی:</span>
+      <button id="modeNormal" class="mode-btn active">عادی</button>
+      <button id="modeTimeAttack" class="mode-btn">تایم اتک</button>
+      <button id="modeEndless" class="mode-btn">بی‌نهایت</button>
+    </div>
+    <div class="difficulty-select">
+      <span>سختی:</span>
+      <button id="diffEasy" class="diff-btn active">آسان</button>
+      <button id="diffNormal" class="diff-btn">معمولی</button>
+      <button id="diffHard" class="diff-btn">سخت</button>
+    </div>
+    <div class="character-select">
+      <span>شخصیت:</span>
+      <button id="charAmir" class="char-btn active">علی</button>
+      <button id="charKoshte" class="char-btn">امیررضا</button>
+      <button id="charSarbaz" class="char-btn">سرباز</button>
+    </div>
+    <button id="menuShopBtn">🛒 فروشگاه</button>
+    <button id="achievementsBtn">🏆 دستاوردها</button>
+    <button id="menuStartBtn">🎮 شروع مبارزه</button>
+    <button id="menuHowBtn">📖 راهنما</button>
+    <div class="stats-record">
+      <div>💰 سکه: <span id="totalCoins">0</span></div>
+      <div>💀 کل کشته‌ها: <span id="totalKillsDisplay">0</span></div>
+      <div>🏆 بهترین کومبو: <span id="bestComboDisplay">0</span></div>
+    </div>
+    <div class="menu-footer">🖱️ ماوس را حرکت بده | کلیک چپ یا Space = حمله</div>
+  </div>
+</div>
+
+<div class="game-container hidden" id="gameContainer">
+  <div class="stats-panel">
+    <div>🎯 امتیاز: <span id="my-emtiaz">0</span></div>
+    <div>⭐ مرحله: <span id="my-level">1</span></div>
+    <div>🔥 کومبو: <span id="combo-count">0</span>x</div>
+    <div>🏆 رکورد: <span id="highscore">0</span></div>
+    <div>❤️ جان: <span id="lives-count">3</span></div>
+    <div>💰 سکه: <span id="coins">0</span></div>
+    <div>⏱️ زمان: <span id="timer">0</span></div>
+    <button id="inGameShopBtn" class="shop-icon">🛒</button>  <!-- دکمه فروشگاه در بازی -->
+  </div>
+
+  <div id="game">
+    <div id="player"></div>
+    <div id="enemyContainer"></div>
+    <div id="itemsContainer"></div>
+    <div id="attackEffect" class="attack-effect hidden"></div>
+    <div id="whiteFlash" class="white-flash hidden"></div>
+    <div id="warningMarker" class="warning-marker hidden"></div>
+  </div>
+
+  <div id="bossHealthBar" class="boss-health hidden">
+    <div class="boss-health-fill"></div>
+    <span>🐉 باس</span>
+  </div>
+
+  <footer>
+    <div class="info-tip">🖱️ ماوس را حرکت بده | کلیک چپ / Space = حمله</div>
+    <div class="controls">
+      <button id="nightModeBtn" class="night-btn">🌙 شب</button>
+      <button id="backToMenuBtn" class="menu-btn">🏠 منو</button>
+      <button id="musicToggleBtn" class="music-btn">🔊 موزیک</button>
+    </div>
+  </footer>
+</div>
+
+<div id="shopPanel" class="shop-panel hidden">
+  <h2>🛒 فروشگاه (ارتقاهای دائمی)</h2>
+  <div class="shop-item"><span>❤️ +1 جان اولیه</span><button id="buyLife">200 سکه</button></div>
+  <div class="shop-item"><span>⚡ کاهش کولداون حمله (20%)</span><button id="buyAttackSpeed">150 سکه</button></div>
+  <div class="shop-item"><span>💰 شانس سکه بیشتر (x1.5)</span><button id="buyCoinBonus">300 سکه</button></div>
+  <div class="shop-item"><span>🌟 شروع با پاورآپ</span><button id="buyStartPowerup">500 سکه</button></div>
+  <button id="closeShop" class="close-btn">بستن</button>
+</div>
+
+<div id="achievementsPanel" class="achievements-panel hidden">
+  <h2>🏆 دستاوردها</h2>
+  <ul id="achievementsList"></ul>
+  <button id="closeAchievements" class="close-btn">بستن</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
