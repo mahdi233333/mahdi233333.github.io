@@ -1,14 +1,14 @@
 (function() {
   // ---------- تنظیمات اولیه ----------
   const ENEMY_IMAGES = {
-    normal: './img/amin.jpg',
-    fast: './img/enemy_fast.jpg',
-    big: './img/enemy_big.jpg',
-    boss: './img/boss.jpg'
+    normal: '.amin.jpg',
+    fast: '.enemy_fast.jpg',
+    big: '.enemy_big.jpg',
+    boss: '.boss.jpg'
   };
   const BACKGROUNDS = [
-    './img/bg1.jpg', './img/bg2.jpg', './img/bg3.jpg', './img/bg4.jpg', './img/bg5.jpg',
-    './img/bg6.jpg', './img/bg7.jpg', './img/bg8.jpg', './img/bg9.jpg'
+    '.bg1.jpg', '.bg2.jpg', '.bg3.jpg', '.bg4.jpg', '.bg5.jpg',
+    '.bg6.jpg', '.bg7.jpg', '.bg8.jpg', '.bg9.jpg'
   ];
   let totalKillsAllTime = localStorage.getItem('totalKillsAllTime') ? parseInt(localStorage.getItem('totalKillsAllTime')) : 0;
   let totalCoins = localStorage.getItem('totalCoins') ? parseInt(localStorage.getItem('totalCoins')) : 0;
