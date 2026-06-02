@@ -103,9 +103,9 @@ body.night-mode { background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
   transition: left 0.05s linear, top 0.05s linear;
   pointer-events: none;
 }
-.character-amir { background-image: url('./img/salam.jpg'); }
-.character-koshte { background-image: url('./img/koshte.jpg'); }
-.character-sarbaz { background-image: url('./img/sarbaz.jpg'); }
+.character-amir { background-image: url('.salam.jpg'); }
+.character-koshte { background-image: url('.koshte.jpg'); }
+.character-sarbaz { background-image: url('.sarbaz.jpg'); }
 
 .enemy {
   position: absolute;
@@ -116,16 +116,16 @@ body.night-mode { background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
   z-index: 5;
   transition: left 0.05s linear, top 0.05s linear;
 }
-.enemy-normal { background-image: url('./img/amin.jpg'); }
-.enemy-fast { background-image: url('./img/enemy_fast.jpg'); width: 35px; height: 35px; }
-.enemy-big { background-image: url('./img/enemy_big.jpg'); width: 80px; height: 80px; }
-.enemy-boss { background-image: url('./img/boss.jpg'); width: 120px; height: 120px; }
+.enemy-normal { background-image: url('.amin.jpg'); }
+.enemy-fast { background-image: url('.enemy_fast.jpg'); width: 35px; height: 35px; }
+.enemy-big { background-image: url('.enemy_big.jpg'); width: 80px; height: 80px; }
+.enemy-boss { background-image: url('.boss.jpg'); width: 120px; height: 120px; }
 
 .warning-marker {
   position: absolute;
   width: 60px;
   height: 60px;
-  background-image: url('./img/snake.jpg'); /* علامت مار */
+  background-image: url('.snake.jpg'); /* علامت مار */
   background-size: contain;
   background-repeat: no-repeat;
   filter: drop-shadow(0 0 5px red);
@@ -146,11 +146,11 @@ body.night-mode { background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
   cursor: pointer;
   z-index: 8;
 }
-.item-heart { background-image: url('./img/heart.png'); }
-.item-lightning { background-image: url('./img/lightning.jpg'); }
-.item-shield { background-image: url('./img/shield.jpg'); }
-.item-slow { background-image: url('./img/slow.png'); }
-.item-multishot { background-image: url('./img/multishot.jpg'); }
+.item-heart { background-image: url('.heart.png'); }
+.item-lightning { background-image: url('.lightning.jpg'); }
+.item-shield { background-image: url('.shield.jpg'); }
+.item-slow { background-image: url('.slow.png'); }
+.item-multishot { background-image: url('.multishot.jpg'); }
 
 .attack-effect {
   position: absolute;
