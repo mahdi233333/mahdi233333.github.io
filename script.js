@@ -7,7 +7,7 @@
     boss: 'boss.jpg'
   };
   const BACKGROUNDS = [
-    'bg1.jpg', 'bg2.jpg', 'bg3.jpg', 'bg4.jpg', 'bg5.jpg'
+    'bg1.jpg', 'bg2.jpg', 'bg3.jpg', 'bg4.jpg', 'bg5.jpg', 'bg6.jpg', 'bg7.jpg', 'bg8.jpg'
   ];
   let totalKillsAllTime = localStorage.getItem('totalKillsAllTime') ? parseInt(localStorage.getItem('totalKillsAllTime')) : 0;
   let totalCoins = localStorage.getItem('totalCoins') ? parseInt(localStorage.getItem('totalCoins')) : 0;
