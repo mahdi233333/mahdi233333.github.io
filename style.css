@@ -12,7 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Segoe UI', sans-serif;
-  padding: 20px;
+  padding: 10px;
   transition: background 0.3s;
 }
 body.night-mode { background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%); }
@@ -29,31 +29,50 @@ body.night-mode { background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 20px;
 }
 .menu-box {
   background: #2c1a0e;
   border-radius: 40px;
-  padding: 30px;
+  padding: 20px;
   text-align: center;
   border: 2px solid #ffb347;
-  min-width: 320px;
+  width: 90%;
+  max-width: 400px;
 }
-.menu-box h1 { color: #ffd966; margin-bottom: 20px; }
+.menu-box h1 { 
+  font-size: 1.8rem;
+  margin-bottom: 15px; 
+}
 .menu-box button, .mode-btn, .diff-btn, .char-btn {
   background: #ffb347;
   border: none;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: bold;
-  padding: 8px 15px;
-  margin: 5px;
+  padding: 6px 12px;
+  margin: 4px;
   border-radius: 50px;
   cursor: pointer;
 }
-.mode-btn.active, .diff-btn.active, .char-btn.active { background: #ffd966; box-shadow: 0 0 10px gold; }
-.stats-record { display: flex; justify-content: space-between; margin: 15px 0; color: #ffcd94; }
-.menu-footer { margin-top: 15px; color: #ffcd94; font-size: 0.8rem; }
+.stats-record { 
+  display: flex; 
+  justify-content: space-between; 
+  margin: 15px 0; 
+  color: #ffcd94;
+  font-size: 0.8rem;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.menu-footer { margin-top: 15px; color: #ffcd94; font-size: 0.7rem; }
 
-.game-container { position: relative; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.game-container { 
+  position: relative; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 10px; 
+  width: 100%;
+}
 #game {
   width: 800px;
   height: 500px;
@@ -68,24 +87,25 @@ body.night-mode { background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
 }
 .stats-panel {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   background: #2c1a0ecc;
   backdrop-filter: blur(5px);
-  padding: 6px 15px;
+  padding: 5px 12px;
   border-radius: 60px;
   color: #f9e7b3;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 }
-.stats-panel div { background: #000000aa; padding: 4px 10px; border-radius: 40px; }
+.stats-panel div { background: #000000aa; padding: 3px 8px; border-radius: 40px; }
 .shop-icon {
   background: #ffb347;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -215,6 +235,8 @@ body.night-mode { background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
   flex-direction: column;
   z-index: 200;
   color: gold;
+  text-align: center;
+  padding: 10px;
 }
 .restart-btn { background: #ffb347; padding: 8px 20px; margin: 5px; border-radius: 30px; cursor: pointer; }
 .shop-panel, .achievements-panel {
@@ -226,11 +248,12 @@ body.night-mode { background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
   border-radius: 30px;
   padding: 20px;
   z-index: 300;
-  width: 300px;
+  width: 85%;
+  max-width: 300px;
   text-align: center;
   color: white;
 }
-.shop-item { margin: 15px 0; display: flex; justify-content: space-between; align-items: center; }
+.shop-item { margin: 15px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px; }
 .close-btn { background: #ffb347; padding: 5px 15px; border-radius: 20px; margin-top: 15px; cursor: pointer; }
 .congrats-message {
   position: absolute;
@@ -239,9 +262,9 @@ body.night-mode { background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
   transform: translate(-50%, -50%);
   background: gold;
   color: darkred;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-radius: 50px;
   white-space: nowrap;
   z-index: 150;
@@ -254,4 +277,131 @@ body.night-mode { background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
   80% { opacity: 1; transform: translate(-50%, -70%); }
   100% { opacity: 0; transform: translate(-50%, -100%); display: none; }
 }
-@media (max-width: 850px) { #game { width: 95vw; height: 60vw; } }
+
+/* ---------- Responsive for mobile ---------- */
+@media (max-width: 768px) {
+  body {
+    padding: 5px;
+  }
+  .menu-box {
+    padding: 15px;
+    width: 95%;
+  }
+  .menu-box h1 {
+    font-size: 1.4rem;
+  }
+  .menu-box button, .mode-btn, .diff-btn, .char-btn {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+  .stats-record {
+    font-size: 0.7rem;
+    justify-content: center;
+  }
+  #game {
+    width: 95vw;
+    height: calc(95vw * 500 / 800); /* maintain aspect ratio 500/800 = 0.625 */
+    max-width: 800px;
+    max-height: 500px;
+  }
+  /* scale player and enemies slightly for better touch */
+  #player {
+    width: 55px;
+    height: 55px;
+  }
+  .enemy {
+    width: 45px;
+    height: 45px;
+  }
+  .enemy-fast {
+    width: 30px;
+    height: 30px;
+  }
+  .enemy-big {
+    width: 70px;
+    height: 70px;
+  }
+  .enemy-boss {
+    width: 100px;
+    height: 100px;
+  }
+  .warning-marker {
+    width: 50px;
+    height: 50px;
+  }
+  .item {
+    width: 25px;
+    height: 25px;
+  }
+  .attack-effect {
+    width: 40px;
+    height: 40px;
+  }
+  .stats-panel {
+    font-size: 0.65rem;
+    gap: 6px;
+    padding: 4px 8px;
+  }
+  .stats-panel div {
+    padding: 2px 6px;
+  }
+  .congrats-message {
+    font-size: 1rem;
+    white-space: nowrap;
+    padding: 5px 12px;
+  }
+  .shop-panel, .achievements-panel {
+    width: 90%;
+    max-width: 280px;
+    padding: 15px;
+  }
+  .shop-item {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-box h1 {
+    font-size: 1.2rem;
+  }
+  .menu-box button, .mode-btn, .diff-btn, .char-btn {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+  #player {
+    width: 50px;
+    height: 50px;
+  }
+  .enemy {
+    width: 40px;
+    height: 40px;
+  }
+  .enemy-fast {
+    width: 28px;
+    height: 28px;
+  }
+  .enemy-big {
+    width: 60px;
+    height: 60px;
+  }
+  .enemy-boss {
+    width: 80px;
+    height: 80px;
+  }
+  .warning-marker {
+    width: 45px;
+    height: 45px;
+  }
+  .item {
+    width: 22px;
+    height: 22px;
+  }
+  .stats-panel {
+    font-size: 0.55rem;
+  }
+  .congrats-message {
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+}
