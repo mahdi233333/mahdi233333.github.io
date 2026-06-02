@@ -103,9 +103,9 @@ body.night-mode { background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
   transition: left 0.05s linear, top 0.05s linear;
   pointer-events: none;
 }
-.character-amir { background-image: url('.salam.jpg'); }
-.character-koshte { background-image: url('.koshte.jpg'); }
-.character-sarbaz { background-image: url('.sarbaz.jpg'); }
+.character-amir { background-image: url('salam.jpg'); }
+.character-koshte { background-image: url('koshte.jpg'); }
+.character-sarbaz { background-image: url('sarbaz.jpg'); }
 
 .enemy {
   position: absolute;
